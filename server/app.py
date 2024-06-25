@@ -14,7 +14,7 @@ def print_string(parameter):
 @app.route('/count/<int:parameter>')
 def count(parameter):
     numbers = '\n'.join(str(num) for num in range(parameter))
-    return f"{numbers}\n"  # Return numbers separated by newline and end with newline
+    return f"{numbers}\n"
 
 @app.route('/math/<num1>/<operation>/<num2>')
 def math(num1, operation, num2):
@@ -30,7 +30,7 @@ def math(num1, operation, num2):
         result = num1 - num2
     elif operation == '*':
         result = num1 * num2
-    elif operation == 'div':  # Changed operation name from '/' to 'div'
+    elif operation == '/': 
         if num2 == 0:
             return jsonify(error="Division by zero is not allowed"), 400
         result = num1 / num2
